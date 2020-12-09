@@ -1,0 +1,39 @@
+## This creates the deployment:
+##     kubectl create -f k8s-be-addition-deployment.yaml
+
+## This will apply changes to the deployment
+##     kubectl apply -f k8s-be-addition-deployment.yaml
+##
+
+## To remove this deployment:
+##     kubectl delete deployment beaddition
+##
+
+## To expose the pod port:
+##    kubectl expose pod beaddition --type=NodePort
+##
+
+## To connect to the service:
+##    minikube service beaddtion
+##
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: beaddition
+spec:
+  selector:
+    matchLabels:
+      app: beaddition
+  replicas: 2
+  template: 
+    metadata:
+      labels:
+        app: beaddition
+    spec:
+      containers:
+      - name: beaddition
+        image: 2bitprogrammers/api_addition:latest
+        imagePullPolicy: IfNotPresent  ## Only pull image if not already in docker-env repository 
+        ports:
+        - containerPort: 1234

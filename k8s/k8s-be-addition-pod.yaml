@@ -1,0 +1,35 @@
+## To run pod:
+##    kubectl create -f k8s-be-addition-pod.yaml
+##
+
+## To apply changes to the pod:
+##    kubectl apply -f k8s-be-addition-pod.yaml
+##
+
+## To delete pod:
+##    kubectl delete pod beaddition
+##
+
+## To expose the pod port:
+##    kubectl expose pod beaddition --type=NodePort
+##
+
+## To connect to the service:
+##    minikube service beaddtion
+##
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: beaddition
+  labels:
+        app: beaddition
+        env: exp 
+        owner: rsb
+spec:
+  containers:
+    - name: beaddition
+      image: 2bitprogrammers/api_addition:latest
+      imagePullPolicy: IfNotPresent  ## Only pull image if not already in docker-env repository 
+      ports:
+        - containerPort: 1234
