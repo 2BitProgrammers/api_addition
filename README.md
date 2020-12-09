@@ -4,7 +4,7 @@ This is a simple API example which sums two values (a and b).  It is meant to be
 
 The API listens on port:  1234
 
-**<u>API Enpoints</u>**:
+<u>API Enpoints</u>:
 * **/status** (GET) - this states whether the app is up and healthy
 * **/add** (POST) - this returns the sum of the provided variables. This requires a json body to be included with the request.
   * <u>Example JSON Body:</u>   _{ "a": 11, "b": 22 }_
